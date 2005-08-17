@@ -52,7 +52,9 @@ class Reader(readers.Reader):
     config_section = 'standalone reader'
     config_section_dependencies = ('readers',)
 
-    default_transforms = (references.Substitutions,
+    def get_transforms(self):
+        return readers.Reader.get_transforms(self) + [
+                          references.Substitutions,
                           references.PropagateTargets,
                           frontmatter.DocTitle,
                           frontmatter.SectionSubTitle,
@@ -64,4 +66,4 @@ class Reader(readers.Reader):
                           references.InternalTargets,
                           references.DanglingReferences,
                           misc.Transitions,
-                          )
+                          ]

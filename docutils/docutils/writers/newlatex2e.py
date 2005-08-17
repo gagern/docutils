@@ -73,8 +73,6 @@ class Writer(writers.Writer):
     output = None
     """Final translated form of `document`."""
 
-    default_transforms = ()
-
     def __init__(self):
         writers.Writer.__init__(self)
         self.translator_class = LaTeXTranslator

@@ -11,7 +11,7 @@ A do-nothing Writer.
 from docutils import writers
 
 
-class Writer(writers.Writer):
+class Writer(writers.NonConsumingWriter):
 
     supported = ('null',)
     """Formats this writer supports."""
